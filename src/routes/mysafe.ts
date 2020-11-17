@@ -1,12 +1,12 @@
-import { NavigationRouteContext, RouterConfigOptions } from "@react-navigation/native";
 import RouteConfig from '../lib/interface/route'
-import Family from '../screens/mysafe/family'
+import TopContact from '../screens/mysafe/top-contact/Index'
 
-const family: RouteConfig = {
-    name: 'family',
-    component: Family
+const topContact: RouteConfig = {
+    name: 'topContact',
+    component: TopContact,
+    options: {
+
+    }
 }
 
-export default [
-    family
-]
+export default [topContact];
