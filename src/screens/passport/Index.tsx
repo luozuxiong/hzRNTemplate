@@ -26,8 +26,16 @@ export default class Passport extends Component {
     ];
     render() {
         return (
-            <View style={styles.wrapper}>
-
+            <View style={{ flex: 1 }}>
+                <Text>sssasfas</Text>
+                <Tabs tabs={tabs}>
+                    <View>
+                        <Text>ss</Text>
+                    </View>
+                    <View>
+                        <Text>2</Text>
+                    </View>
+                </Tabs>
             </View>
         );
     }
@@ -35,13 +43,13 @@ export default class Passport extends Component {
 
 const styles = StyleSheet.create({
     wrapper: {
-        flex: 1,
-    },
-    content: {
-        width: "100%",
-        height: '100%',
+        // flex: 1,
         position: 'absolute',
-        top: undefined,
-        bottom: undefined
+        zIndex: 1000,
+        top: 600
+        // color: 'red',
+        // marginTop: 1000,
+        // marginTop: 1000,
     },
+
 });

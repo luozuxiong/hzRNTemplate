@@ -4,38 +4,36 @@ import RouteConfig from '../lib/interface/route'
 import Passport from '../screens/passport/Index'
 import { View, Text, ImageBackground, PixelRatio, StyleSheet } from 'react-native';
 import { dpi, unitHeight, unitWidth, statusBarHeight } from './../lib/utils/screen'
-console.log(statusBarHeight)
+import { Tabs } from '@ant-design/react-native'
+function Header(props) {
+    return (
+        <View style={{ flex: 1, }}>
+            <ImageBackground
+                style={{
+                    width: 750 * unitWidth,
+                    height: 532 * unitHeight,
+                    backgroundColor: 'red'
+
+                }}
+                source={require(`./../../assets/images/xxhdpi/login_head_image.png`)}>
+                <View style={style.navigation}>
+                    <View style={style.navigationContent}>
+                        {/* <Icon name='left' /> */}
+                        <Text style={style.title}>登陆/注册</Text>
+                    </View>
+                </View>
+            </ImageBackground>
+            <View style={{ flex: 1, position: 'absolute', top: 400 }}>
+
+                <Text>sfd</Text>
+            </View>
+        </View >
+    )
+}
 const passport: RouteConfig = {
     name: 'passport',
     options: {
-        header: props =>
-            <View style={{ flex: 1 }}>
-                <ImageBackground
-                    style={{
-                        width: 750 * unitWidth,
-                        height: 532 * unitHeight,
-
-                    }}
-                    source={require(`./../../assets/images/xxhdpi/login_head_image.png`)}>
-                    <View style={style.navigation}>
-                        <View style={style.navigationContent}>
-                            <Icon name='left' />
-                            <Text style={style.title}>登陆/注册</Text>
-                        </View>
-                    </View>
-                </ImageBackground>
-            </View >,
-        title: '登陆/注册',
-        headerBackAccessibilityLabel: '',
-        headerTitleStyle: {
-            color: '#fff',
-            borderBottomColor: '#6076FF',
-        },
-        headerStyle: {
-            backgroundColor: '#6076FF',
-            shadowColor: '#6076FF',
-
-        }
+        header: props => <Header props={props} />,
     },
     component: Passport
 }
@@ -60,9 +58,10 @@ const style = StyleSheet.create({
         color: "#fff",
         flex: 1,
         textAlign: 'center',
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'bold'
-    }
+    },
+
 })
 
 export default [
