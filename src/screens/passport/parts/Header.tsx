@@ -6,8 +6,8 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import {unitHeight, unitWidth} from '../../../lib/utils/screen';
-import {Tabs, InputItem} from '@ant-design/react-native';
+import { unitHeight, unitWidth } from '../../../lib/utils/screen';
+import { Tabs, InputItem, Button, List } from '@ant-design/react-native';
 function Header(props) {
   const tabs = [
     {
@@ -20,7 +20,7 @@ function Header(props) {
     },
   ];
   return (
-    <View style={{flex: 1, position: 'absolute', zIndex: 10}}>
+    <View style={{ flex: 1, position: 'absolute', zIndex: 10 }}>
       <ImageBackground
         style={{
           width: 750 * unitWidth,
@@ -54,7 +54,7 @@ function Header(props) {
                       <TouchableOpacity
                         key={tab.value}
                         onPress={() => {
-                          const {goToTab, onTabClick} = tabProps;
+                          const { goToTab, onTabClick } = tabProps;
                           // tslint:disable-next-line:no-unused-expression
                           onTabClick && onTabClick(tabs[i], i);
                           // tslint:disable-next-line:no-unused-expression
@@ -67,8 +67,9 @@ function Header(props) {
                 );
               }}>
               <View style={style.tabContent}>
-                <InputItem placeholder="请输入用户名" />
-                <InputItem placeholder="请输入密码" />
+                <List ><InputItem placeholder="请输入用户名" style={{ flex: 1 }} />
+                  <InputItem placeholder="请输入密码" style={style.input} /></List>
+                <Button style={style.getSmsBtn}>获取验证码</Button>
               </View>
               <View style={style.tabContent}>
                 <Text>2</Text>
@@ -117,7 +118,7 @@ const style = StyleSheet.create({
   tabs: {
     flex: 1,
     borderRadius: 20,
-    height: 100,
+    height: 300,
   },
   tabBar: {
     paddingHorizontal: 16,
@@ -131,13 +132,22 @@ const style = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   tabContent: {
-    alignItems: 'center',
-    justifyContent: 'center',
     flex: 1,
+    position: 'relative'
+  },
+  input: {
+    height: 100,
   },
   tabTitle: {
     fontSize: 16,
   },
+  getSmsBtn: {
+    borderWidth: 0,
+    position: 'absolute',
+    right: 0,
+    top: 80 * unitWidth,
+    fontSize: 12
+  }
 });
 
 export default Header;
